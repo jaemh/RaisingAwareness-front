@@ -17,7 +17,7 @@ class App extends Component {
 
    getData = () => {
 
-        fetch("http://localhost:3000/api/data")
+        fetch("https://raisingawareness-end.herokuapp.com/api/data")
          .then(res => res.json())
          .then(result => {
 
@@ -39,7 +39,7 @@ class App extends Component {
 
 
    getCO2 = () => {
-        fetch("http://localhost:3000/api/co2")
+        fetch("https://raisingawareness-end.herokuapp.com/api/co2")
           .then(response => response.json())
           .then(response =>
 
