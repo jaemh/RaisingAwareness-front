@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Dropdown from './components/Dropdown';
-import EmissionData from './components/EmissionData';
+import SearchCountry from './components/SearchCountry';
+import CompareEmissionData from './components/CompareEmissionData';
+import Mainpage from './components/Mainpage'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -14,10 +16,9 @@ class App extends Component {
 
   }
 
-
    getData = () => {
 
-        fetch("https://raisingawareness-end.herokuapp.com/api/data")
+        fetch("http://localhost:3000/api/data")
          .then(res => res.json())
          .then(result => {
 
@@ -39,7 +40,7 @@ class App extends Component {
 
 
    getCO2 = () => {
-        fetch("https://raisingawareness-end.herokuapp.com/api/co2")
+        fetch("http://localhost:3000/api/co2")
           .then(response => response.json())
           .then(response =>
 
@@ -59,14 +60,26 @@ class App extends Component {
 
   }
 
+
     render() {
 
     return (
-
-        <div>
-            <EmissionData data={this.state.data} emissionData={this.state.co2} />
-            <Dropdown data={this.state.data} emissionData={this.state.co2}/>
-        </div>
+            <Router>
+                <div>
+                    <nav>
+                        <ul className="navbar">
+                            <li><Link to={'/'} className="nav-text"> Home </Link></li>
+                            <li><Link to={'/country'} className="nav-text">Compare emission</Link></li>
+                            <li><Link to={'/emission'} className="nav-text">Search</Link></li>
+                        </ul>
+                    </nav>
+                    <Switch>
+                        <Route exact path='/' component={Mainpage} />
+                        <Route path='/country' render={() => <CompareEmissionData data={this.state.data} emissionData={this.state.co2}/>} />
+                        <Route path='/emission' render={() => <SearchCountry data={this.state.data} emissionData={this.state.co2} /> }/>
+                    </Switch>
+                </div>
+            </Router>
     );
 
   }

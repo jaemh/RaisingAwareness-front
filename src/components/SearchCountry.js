@@ -1,9 +1,9 @@
 import React from 'react';
 import CountryInfo from './CountryInfo';
-import './Input.css'
+import './style.css';
 
 
-class Dropdown extends React.Component {
+class SearchCountry extends React.Component {
     constructor() {
         super();
 
@@ -62,28 +62,30 @@ class Dropdown extends React.Component {
 
         return (
             <div>
-                <input className="SearchInput"
-                       onChange={this.searchCountry.bind(this)}
-                       placeholder="Search"
-                       value = {this.state.input}
+                <input className="search-bar"
+                    onChange={this.searchCountry.bind(this)}
+                    placeholder="Select country..."
+                    value = {this.state.input}
                 />
-                    <ul>
-                        {this.state.countryName ? <div className = "capitalName">{this.state.countryName}</div> :
 
-                            <div>
+                { this.state.countryName ?
+                    <div className="container-countryName">
+                        <div className="capital-name">{this.state.countryName}</div>
+                    </div> :
 
-                                {this.state.list.map(function (value) {
-                                    return <li className="capitalList" onClick={() => clickHandler(value)} key={value}>{value}</li>
-                                })}
-                            </div>
-                        }
+                    <div className="container-search-bar">
+                        {this.state.list.map(function (value) {
+                            return <li className="search-list" onClick={() => clickHandler(value)} key={value}>{value}</li>
+                        })}
+                    </div>
+                }
 
-                    </ul>
-                    <CountryInfo countryInfo={this.state.countryData} emissionData = {this.props.emissionData} countryName = {this.state.countryName} />
+
+                <CountryInfo countryInfo={this.state.countryData} emissionData = {this.props.emissionData} countryName = {this.state.countryName} />
 
             </div>
         );
     }
 }
 
-export default Dropdown;
+export default SearchCountry;

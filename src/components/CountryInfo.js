@@ -1,5 +1,5 @@
 import React from "react";
-import "./Input.css";
+import "./style.css";
 
 
 class CountryInfo extends React.Component {
@@ -10,12 +10,30 @@ class CountryInfo extends React.Component {
             population: null,
             emission: null,
             emissionDatabyName: false,
-            yearOne: null
+            yearOne: "Select year",
+            displayMenu: false,
+
         }
+
+        this.showDropdownMenu = this.showDropdownMenu.bind(this);
+        this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+    }
+
+    showDropdownMenu(event) {
+        event.preventDefault();
+        this.setState({ displayMenu: true }, () => {
+            document.addEventListener('click', this.hideDropdownMenu);
+        });
+    }
+
+    hideDropdownMenu() {
+        this.setState({ displayMenu: false }, () => {
+            document.removeEventListener('click', this.hideDropdownMenu);
+        });
+
     }
 
     showPopulation = (oneYear) => {
-
 
         const emissionDatabyYear = this.props.emissionData[this.props.countryName].filter(yearOne => {
 
@@ -59,44 +77,39 @@ render(){
 
     const showPopulation = this.showPopulation.bind(this);
 
-
         let years = this.props.countryInfo.map(oneYear => {
-            return <div onClick={() => showPopulation(oneYear)}>{oneYear.year}</div>
+            return <li onClick={() => showPopulation(oneYear)}>{oneYear.year}</li>
+
 
         });
 
 
-
     return(
         <div>
-            {this.props.emissionData[this.props.countryName]  ?
-             <div className="dropdown">
-                <button className="dropbtn">Years</button>
-                    <div className="dropdown-content">
-                        <div class="dropdown-list" >{years}</div>
-                    </div>
-             </div> : <div></div>}
+            <div className="container-countryInfo">
+                {this.props.emissionData[this.props.countryName]  ?
+                    <button className="select-year" onClick={this.showDropdownMenu}>{this.state.yearOne}</button> :
+                    null
+                }
+
+                {this.state.displayMenu ?
+                    <ul className="ul-years">
+                        <li>{years}</li>
+                    </ul> : null
+                }
 
 
 
-            {this.props.emissionData[this.props.countryName] && this.state.emissionDatabyName ?
-                <div>
-                    <div className="year"> ({this.state.yearOne}) </div>
+                {this.props.emissionData[this.props.countryName] && this.state.emissionDatabyName ?
+                    <ul className="container-info">
+                        {this.state.population ? <li className="population" >Population: {this.state.population}</li> : "" }
+                        {this.state.emission ? <li className="emission">  CO2 emission: {this.state.emission}</li> : "" }
+                        <li className="emission-per-capita">{ this.emissionPerCapita()} </li>
 
-                    <div class="boxPopulation">
-                        { this.state.population ? <li className = "population" >Population: {this.state.population}</li> : "" }
-                    </div>
-                    <div className="boxEmission">
-                        { this.state.emission ? <li className = "emission"> Emission: {this.state.emission}</li> : "" }
-                    </div>
-                    <div className="boxEmissionPerCapita">
-                        { this.emissionPerCapita()}
-                    </div>
-                </div> : <div></div>
-            }
+                    </ul> : null
+                }
 
-
-
+            </div>
         </div>
     )
 }

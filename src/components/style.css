@@ -1,0 +1,291 @@
+.navbar {
+    position: fixed;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 99%;
+
+}
+
+.container-countryInfo {
+    width:400px;
+    height:400px;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    margin-top: -100px;
+    margin-left: -100px;
+    border-radius: 5px;
+}
+
+.container-countryName{
+    width:400px;
+    height:160px;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    margin-top: -100px;
+    margin-left: -100px;
+    border-radius: 5px;
+
+}
+
+.container-info {
+    margin-left: 30%;
+    padding: 0;
+}
+
+.nav-text{
+    float: left;
+    color: aliceblue;
+    margin: 14px;
+
+
+}
+
+.search-bar {
+    margin-top: 13px;
+    position: fixed;
+    margin-left: 21%;
+
+}
+
+.search-list {
+    background-color: #f6f6f6;
+    width: 25%;
+    padding: 12px 11px;
+    display: block;
+    margin-left: 21%;
+}
+
+
+.ul-years{
+    list-style-type: none;
+    padding: 0;
+    top: 7px;
+    right: 139px;
+    width: 100px;
+    background-color: white;
+    font-weight: bold;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.capital-name {
+    width: 60%;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+
+}
+
+.population {
+    list-style: none;
+    display: inline-block;
+    margin: auto;
+    font-size: 20px;
+    padding-top: 40px;
+
+
+}
+
+.emission {
+    list-style: none;
+    display: inline-block;
+    margin: auto;
+    font-size: 20px;
+    padding-top: 40px;
+
+
+}
+
+.emission-per-capita {
+    list-style: none;
+    display: inline-block;
+    margin: auto;
+    font-size: 20px;
+    padding-top: 40px;
+
+
+}
+
+.boxPopulation {
+    position: fixed;
+    left: 33%;
+    top: 30%;
+    background-color: lavender;
+    padding: 10px 35px;
+    box-shadow: 0 0 10px gray;
+
+}
+
+
+
+.compare-name{
+    position: fixed;
+    padding: 5px;
+    bottom: 70%;
+    left: 50%;
+
+}
+
+
+.findGreatPower{
+    position: absolute;
+    padding: 5px;
+    left: 30%;
+    margin: 2px;
+    top: 30%
+}
+
+.container-compare-emission{
+    width:400px;
+    height:400px;
+    position: fixed;
+    background-color: #f2f2f2;
+    top: 40%;
+    left: 40%;
+    margin-top: -100px;
+    margin-left: -100px;
+    border-radius: 5px;
+
+
+}
+
+.button-compare-emission{
+    margin-top: 10%;
+    margin-left: 30%;
+    display: inline-block;
+    width: 40%;
+    height: 10%;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.input-compare-emission{
+    margin-top: 10%;
+    margin-left: 30%;
+    padding: 15px;
+    width: 31%;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.list-of-countries-emission{
+    list-style: none;
+    margin-left: 30%;
+    background-color: #f6f6f6;
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+
+}
+
+.great-button{
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.dropdown-all {
+    position: absolute;
+    display: inline-block;
+    top: 20%;
+    left: 35%;
+}
+
+.dropdown-input{
+    width: 100%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+
+.year-button{
+    position: absolute;
+    display: inline-block;
+    top: 20%;
+    left: 60%;
+}
+
+.select-year{
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 40%;
+    cursor: pointer;
+
+}
+
+.container-search-bar{
+    display: inline-block;
+    margin-left: 10%;
+    margin-top: 3%;
+    width: 50%;
+
+}
+
+.selected-year{
+    display: block;
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    padding: 10px;
+    width: 40%;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.selected-name{
+    margin-left: 42%;
+    margin-top: 5%;
+}
+
+
+.ul-great{
+    list-style-type: none;
+    margin-left: 30%;
+    padding: 0;
+    margin-top: 1px;
+    width: 161px;
+    background-color: white;
+    display: inline-block;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+
+}
+
+
+.headline{
+    position: absolute;
+    top: 10%;
+    left: 35%;
+
+}
+
+.main-text{
+    position: absolute;
+    top: 20%;
+    left: 27%;
+}
+
+.question {
+    position: absolute;
+    top: 25%;
+    left: 27%;
+}
+
