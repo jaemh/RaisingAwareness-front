@@ -32,7 +32,7 @@ class Mainpage extends React.Component{
 
         return (
             <div>
-                <h2 className="headline">Welcome to Raising Awarness page </h2>
+                <h2 className="headline">Welcome to Raising Awareness page </h2>
                 <div className="main-text">Here you can find countries CO2 emissions and compare them to the Great Powers.</div>
                 <div className="question">But first a million dollar question: What are you willing to give up to reduce CO2 emissions? </div>
 
