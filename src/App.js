@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import SearchCountry from './components/SearchCountry';
 import CompareEmissionData from './components/CompareEmissionData';
-import Mainpage from './components/Mainpage'
+import Mainpage from './components/Mainpage';
+import TopTen from './components/TopTen';
+
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data: [],
-        co2: [],
-        name: [],
+        data: {},
+        co2: {},
+        name: null,
 
     };
+
+    this.getData();
+    this.getCO2();
 
   }
 
@@ -54,12 +59,6 @@ class App extends Component {
     }
 
 
-  componentDidMount() {
-    this.getData();
-    this.getCO2();
-
-  }
-
 
     render() {
 
@@ -67,14 +66,16 @@ class App extends Component {
             <Router>
                 <div>
                     <nav>
-                        <ul className="navbar">
+                        <Link className="navbar">
                             <li><Link to={'/'} className="nav-text"> Home </Link></li>
                             <li><Link to={'/country'} className="nav-text">Compare emission</Link></li>
+                            <li><Link to={'/top'} className={"nav-text"}>Countries by emission size</Link></li>
                             <li><Link to={'/emission'} className="nav-text">Search</Link></li>
-                        </ul>
+                        </Link>
                     </nav>
                     <Switch>
                         <Route exact path='/' component={Mainpage} />
+                        <Route path='/top' render={() => <TopTen emissionData={this.state.co2} />}/>
                         <Route path='/country' render={() => <CompareEmissionData data={this.state.data} emissionData={this.state.co2}/>} />
                         <Route path='/emission' render={() => <SearchCountry data={this.state.data} emissionData={this.state.co2} /> }/>
                     </Switch>
