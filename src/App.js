@@ -23,7 +23,7 @@ class App extends Component {
 
    getData = () => {
 
-        fetch("http://localhost:3000/api/data")
+        fetch("https://raisingawareness-end.herokuapp.com/")
          .then(res => res.json())
          .then(result => {
 
